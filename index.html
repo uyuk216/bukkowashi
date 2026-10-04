@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1, user-scalable=no">
+    <meta name="theme-color" content="#090c20">
+    <meta name="description" content="指でなぞって、15秒で街をぶっ壊せ！">
+    <title>指1本ぶっ壊し</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="game.js" defer></script>
+  </head>
+  <body>
+    <main id="game" aria-label="指1本ぶっ壊し">
+      <canvas id="scene" aria-label="ブロックの街。指でなぞると壊せます"></canvas>
+
+      <section class="hud" id="hud" aria-live="polite" hidden>
+        <div class="hud-top">
+          <div class="stage-chip"><span class="stage-dot"></span><span id="stageValue">街 01</span></div>
+          <div class="score-block"><span class="hud-label">スコア</span><strong id="scoreValue">0</strong></div>
+          <div class="timer-block"><span class="hud-label">のこり</span><strong><span id="timeValue">15.0</span><small>秒</small></strong></div>
+        </div>
+        <div class="time-track"><span id="timeBar"></span></div>
+        <div class="combo-readout" id="comboReadout" aria-live="off"></div>
+        <div class="play-hint">なぞれ！</div>
+      </section>
+
+      <section class="overlay title-overlay" id="titleOverlay">
+        <div class="title-content">
+          <div class="eyebrow"><span></span> 15秒チャレンジ <span></span></div>
+          <h1>指1本<br><em>ぶっ壊し</em></h1>
+          <p class="tagline">なぞって、街をぶっ壊せ。</p>
+          <button class="action-button start-button" id="startButton" type="button">
+            <span>タップして開始</span><b aria-hidden="true">↗</b>
+          </button>
+          <div class="micro-copy">音あり・指1本でOK</div>
+        </div>
+        <div class="corner-note" aria-hidden="true">なぞって<br>壊せ！</div>
+      </section>
+
+      <section class="overlay result-overlay" id="resultOverlay" hidden>
+        <div class="result-content">
+          <div class="eyebrow"><span></span> 時間切れ <span></span></div>
+          <h2>街、全壊。</h2>
+          <div class="final-score"><span>スコア</span><strong id="finalScore">0</strong></div>
+          <div class="best-score">自己ベスト <strong id="bestScore">0</strong></div>
+          <button class="action-button replay-button" id="replayButton" type="button">
+            <span>もう1回</span><b aria-hidden="true">↻</b>
+          </button>
+          <div class="micro-copy">タップで即リスタート</div>
+        </div>
+      </section>
+      <div class="screen-vignette" aria-hidden="true"></div>
+    </main>
+  </body>
+</html>
